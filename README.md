@@ -34,6 +34,7 @@ Carbon_Countdown/
 │   ├── images/         # Generated chart images
 │   └── notebooks/      # Jupyter notebooks for data analysis
 ├── analytics.db        # SQLite database for user analytics
+├── app.py             # Main Flask application with routes and analytics
 └── report.pdf         # User tracking analysis report
 ```
 
@@ -113,6 +114,7 @@ Based on the user tracking report, key improvements were made:
 - Python 3.11+
 - Flask framework
 - SQLite3
+- user-agents library for browser detection
 
 ### Installation
 ```bash
@@ -125,7 +127,7 @@ python -m venv env
 source env/bin/activate  # On Windows: env\Scripts\activate
 
 # Install dependencies
-pip install flask pandas plotly
+pip install flask pandas plotly user-agents
 
 # Initialize database
 sqlite3 analytics.db < data/analytics.sql
@@ -135,10 +137,11 @@ python app.py
 ```
 
 ### Development Notes
-- The main `app.py` file appears to be missing from the repository
 - Flask session data is stored in the `flask_session/` directory
 - Static assets are served from the `static/` directory
 - Templates use Jinja2 templating with Bootstrap styling
+- Custom analytics tracking implemented with user-agents library
+- Session-based user tracking with IP address identification
 
 ## 📈 Future Improvements
 
